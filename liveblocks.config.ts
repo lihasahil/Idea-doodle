@@ -23,7 +23,9 @@ const client = createClient({
 // Storage: persisted shared state across all users (LiveMap, LiveList, LiveObject)
 // UserMeta: static user info (e.g., name, avatar)
 // RoomEvent: custom events you broadcast within the room
-type Presence = {};
+type Presence = {
+  cursor: { x: number; y: number } | null;
+};
 
 type Storage = {};
 
