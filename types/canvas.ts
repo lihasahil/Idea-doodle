@@ -87,6 +87,16 @@ export enum Side {
   Right = 8,
 }
 
+export enum CanvasMode {
+  None,
+  Pressing,
+  SelectionNet,
+  Translating,
+  Inserting,
+  Resizing,
+  Pencil,
+}
+
 export type CanvasState =
   | {
       mode: CanvasMode.None;
@@ -109,9 +119,8 @@ export type CanvasState =
       layerType:
         | LayerType.Ellipse
         | LayerType.Note
-        | LayerType.Path
         | LayerType.Rectangle
-        | LayerType.Text;
+        | LayerType.Text; // ✅ removed Path
     }
   | {
       mode: CanvasMode.Resizing;
@@ -122,12 +131,9 @@ export type CanvasState =
       mode: CanvasMode.Pencil;
     };
 
-export enum CanvasMode {
-  None,
-  Pressing,
-  SelectionNet,
-  Translating,
-  Inserting,
-  Resizing,
-  Pencil,
-}
+export type Layer =
+  | RectangleLayer
+  | EllipseLayer
+  | PathLayer
+  | TextLayer
+  | NoteLayer;
