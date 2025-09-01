@@ -3,15 +3,17 @@ import { Canvas } from "./_components/canvas";
 import { Loading } from "./_components/canvas-loading";
 
 interface BoardIdPageProps {
-  params: {
+  params: Promise<{
     boardId: string;
-  };
+  }>;
 }
 
-const BoardIdPage = ({ params }: BoardIdPageProps) => {
+const BoardIdPage = async ({ params }: BoardIdPageProps) => {
+  const { boardId } = await params; 
+
   return (
-    <Room roomId={params.boardId} fallback={<Loading />}>
-      <Canvas boardId={params.boardId} />;
+    <Room roomId={boardId} fallback={<Loading />}>
+      <Canvas boardId={boardId} />
     </Room>
   );
 };
