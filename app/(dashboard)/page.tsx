@@ -14,7 +14,6 @@ interface DashboardPageProps {
 
 const DashboardPage = ({ searchParams }: DashboardPageProps) => {
   const { organization } = useOrganization();
-
   const query = use(searchParams);
 
   return (
