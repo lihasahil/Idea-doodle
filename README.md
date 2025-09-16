@@ -107,4 +107,4 @@ Convex ensures data is stored reliably, while Liveblocks ensures instant collabo
 ---
 
 
-*This is a simplified project README. Expand as the project grows.*
+*Thanks for Visiting*
